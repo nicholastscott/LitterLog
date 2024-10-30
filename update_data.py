@@ -3,7 +3,7 @@ import requests
 from datetime import datetime
 
 # Step 1: Fetch current dataset from GitHub
-url = "https://raw.githubusercontent.com/nicholastscott/litterlog/main/dumpings.csv"
+url = "https://raw.githubusercontent.com/nicholastscott/LitterLog/main/dumpings.csv"
 current_data = pd.read_csv(url, parse_dates=['requested_datetime', 'closed_datetime'], encoding='latin1')
 
 # Step 2: Find the most recent requested_datetime
