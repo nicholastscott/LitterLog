@@ -1,0 +1,38 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    /* background-color: #fafafa; */
+    background-color: #F7F9FC; /* A light blueish-gray background */
+    height: 100vh;
+    overflow: hidden;  /* Disable scrolling on the body */
+    font-family: 'Arial', sans-serif; /* Use a widely supported font */
+    font-size: 16px; /* Base font size */
+    line-height: 1.5; /* Improve readability */
+    color: #333; /* A softer color for text */
+}
+
+.dashboard {
+    display: flex;
+    height: 100vh;
+    gap: 16px; /* Add some space between the sidebar and content */
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 350px;
+    min-width: 350px;
+    background-color: #ffffff;
+    border-right: 1px solid #E0E0E0; /* A light border to separate it from the content */
+    padding: 24px; /* More padding for the sidebar for a spacious look */
+    overflow-y: auto;  /* Enable scrolling for the sidebar if content exceeds view height */
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

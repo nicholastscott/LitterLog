@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>LitterLog</title>
+    <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <img alt="litterlog logo" class="sidebar-logo"
+                src="logo-no-background.png" />
+            <!-- <h1>LitterLog</h1> -->
+            <p>Explore Philadelphia's Illegal dumping requests</p>
+            
+            <!-- Area and Zipcode Dropdowns -->
+            <div class="dropdowns">
+                <div class="dropdown">
+                    <label for="area">Area:</label>
+                    <select id="area">
+                        <!-- Options will be populated dynamically -->
+                    </select>
+                </div>
+                
+
+                <div class="dropdown">
+                    <label for="zipcode">Zip Code:</label>
+                    <select id="zipcode">
+                        <!-- Options will be populated dynamically -->
+                    </select>
+                </div>
+            </div>
+        </div>
+    
+<!-- Content Area -->
+<div class="content-area">
+    <div class="instruction-container">
+        <p>Select a zip code and click <strong>'View Graffiti'</strong> to explore random graffiti from that area</p>
+    </div>
+    <div class="mapContainer">
+        <img alt="DumpMap" id="DumpMap" src="" />
+    </div>
+    <div id="Map">
+        <script src="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.js"></script>
+        <link href="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.css" rel="stylesheet">
+
+    </div>   
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+
+
