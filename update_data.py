@@ -19,9 +19,9 @@ WHERE
         (requested_datetime > '{latest_date}') OR 
         (status = 'Open' AND closed_datetime IS NOT NULL)
       ) 
-      AND subject = 'Graffiti Removal'
-      AND media_url IS NOT NULL
-      AND media_url <> ''
+      AND subject = 'Illegal Dumping'
+      --AND media_url IS NOT NULL
+      --AND media_url <> ''
 """
 response = requests.get("https://phl.carto.com/api/v2/sql", params={'q': query})
 new_data = pd.DataFrame(response.json()['rows'])

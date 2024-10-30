@@ -4,7 +4,7 @@ let areaToZip = {}; // To store the mapping of areas to their associated zip cod
 let allZips = new Set(); // To store all unique zip codes from the reference data
 
 // Fetch the reference data for area-to-zipcode mapping
-fetch('https://raw.githubusercontent.com/jeisey/phiti/main/ref_ziparea.csv')
+fetch('https://raw.githubusercontent.com/nicholastscott/litterlog/main/ref_ziparea.csv')
     .then(response => response.text())
     .then(data => {
         const rows = data.split('\n');
