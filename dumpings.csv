@@ -1,0 +1,2 @@
+objectid,service_request_id,subject,status,status_notes,service_name,service_code,agency_responsible,service_notice,requested_datetime,updated_datetime,expected_datetime,closed_datetime,address,zipcode,media_url,lat,lon
+5131227,16473162,Illegal Dumping,Closed,,Illegal Dumping,SR-ST02,Streets Department,5 Business Days,2024-01-01 00:13:37+00,2024-05-11 15:55:41+00,2024-01-08 00:00:00+00,2024-01-08 12:22:43+00,ARAMINGO AVE & E LEHIGH AVE,,https://d17aqltn7cihbm.cloudfront.net/uploads/large_5d21f259ac5057add595ac1c59691ea2,39.98148286,-75.11735514
