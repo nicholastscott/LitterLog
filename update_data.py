@@ -16,12 +16,10 @@ SELECT cartodb_id,objectid,service_request_id,status,status_notes,requested_date
 FROM public_cases_fc 
 WHERE 
       ( 
-        (requested_datetime > '{latest_date}') OR 
-        (status = 'Open' AND closed_datetime IS NOT NULL)
+        (requested_datetime > '{latest_date}') --OR 
+        --(status = 'Open' AND closed_datetime IS NOT NULL)
       ) 
       AND subject = 'Illegal Dumping'
-      --AND media_url IS NOT NULL
-      --AND media_url <> ''
 """
 response = requests.get("https://phl.carto.com/api/v2/sql", params={'q': query})
 new_data = pd.DataFrame(response.json()['rows'])
