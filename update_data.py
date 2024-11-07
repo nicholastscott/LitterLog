@@ -3,12 +3,12 @@ import requests
 from datetime import datetime
 
 # Step 1: Fetch current dataset from GitHub
-url = "https://raw.githubusercontent.com/nicholastscott/LitterLog/main/dumpings.csv"
-current_data = pd.read_csv(url, parse_dates=['requested_datetime', 'closed_datetime'], encoding='latin1')
+#url = "https://raw.githubusercontent.com/nicholastscott/LitterLog/main/dumpings.csv"
+#current_data = pd.read_csv(url, parse_dates=['requested_datetime', 'closed_datetime'], encoding='latin1')
 
 # Step 2: Find the most recent requested_datetime
-latest_date = current_data['requested_datetime'].max()
-latest_date = latest_date.tz_convert('UTC')
+#latest_date = current_data['requested_datetime'].max()
+#latest_date = latest_date.tz_convert('UTC')
 
 # Step 3: Query the API for new or modified records
 query = f"""
