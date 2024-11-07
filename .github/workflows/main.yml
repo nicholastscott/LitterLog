@@ -30,6 +30,8 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
+        git fetch origin main
+        git merge origin main
         git add dumpings.csv
         git commit -m "Update dumpings.csv with new data" || echo "No changes to commit"
         git push
