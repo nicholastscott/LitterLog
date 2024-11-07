@@ -16,8 +16,8 @@ SELECT cartodb_id,objectid,service_request_id,status,status_notes,requested_date
 FROM public_cases_fc 
 WHERE 
       ( 
-        (requested_datetime > '{latest_date}') --OR 
-        --(status = 'Open' AND closed_datetime IS NOT NULL)
+        (requested_datetime > '{latest_date}') OR 
+        (status = 'Open' AND closed_datetime IS NOT NULL)
       ) 
       AND subject = 'Illegal Dumping'
 """
