@@ -89,4 +89,4 @@ current_data['area'] = current_data['District'].fillna("Not Applicable")
 current_data.drop(columns=['Zip', 'District'], inplace=True)  # Drop the columns used for the merge
 
 # Save the updated dataframe (pushed to git repository)
-current_data.to_csv("graffiti.csv", index=False)
+current_data.to_csv("dumpings.csv", index=False)
