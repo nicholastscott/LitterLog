@@ -14,11 +14,13 @@ st.set_page_config(layout="wide")
 with st.sidebar:
     st.logo("logo-no-background.png")
     st.title("Where It Ends Up: Mapping Illegal Dumping")
-    st.write("During the DC 33 strike that has frozen trash removal across the city of Philadelphia, reports of illegal dumping is sure to increase. The goal of this project is to increase transparency so that the City's 311 system and residents don't lose track of these requests at this critical time.")
+    st.write("DC 33, a union representing Philadelphia's municipal workers, went on strike July 1, 2025. This has frozen trash removal across the city of Philadelphia in hopes of better for better wages for these essential workers. Reports of illegal dumping are sure to increase. The goal of this project is to increase transparency so that the City's 311 system and residents don't lose track of these requests at this critical time.")
     st.divider()
     st.subheader("Features")
     st.write("1. Stats")
-    st.write("Methodology for D/D calculation: ")
+    st.caption("" \
+    "" \
+    "In Progress: Day over Day rate calculation of Illegal Dumping Reports")
     st.write("2. Map")
     st.write("Mapbox")
     
