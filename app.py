@@ -78,8 +78,10 @@ addresses = new_data['address']
 word_counts= Counter(addresses)
 top3adds= word_counts.most_common(3)
 
+top3adds = str(top3adds)
+
 st.metric(
-    label="Top Addresses Reported (Address, Frequency)", value=str(top3adds)
+    label="Top Addresses Reported (Address, Frequency)", value=top3adds
 )
 
 st.divider()
