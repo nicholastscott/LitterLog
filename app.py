@@ -84,6 +84,8 @@ st.divider()
 
 st.write("Map of Hotspots")
 
+st.map(new_data)
+
 #m = folium.Map(new_data)
 
 #HeatMap(new_data).add_to(m)
