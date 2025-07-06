@@ -5,7 +5,9 @@ import requests
 from datetime import datetime
 import json
 from collections import Counter
-#import folium
+import folium
+from streamlit_folium import st_folium
+from folium.plugins import HeatMap
 
 #Page Config
 st.set_page_config(layout="wide")
@@ -59,7 +61,6 @@ def get_phl_data(sql_query: str) -> pd.DataFrame:
 new_data = get_phl_data(query)
 
 
-
 #Body of Webpage
 st.header("High Level Stats")
 st.write("Since 7/1/2025")
@@ -90,11 +91,17 @@ st.write("Map of Hotspots")
 
 st.map(new_data)
 
-#m = folium.Map(new_data)
+#map = folium.Map(location=[39.95233,-75.16379], zoom_start=16)
 
 #HeatMap(new_data).add_to(m)
 
-#st.pydeck_chart(m)
+
+#for dumpsite in new_data:
+#    location = dumpsite['lat'], new_data['lon']
+#    folium.Marker(location).add_to(map) 
+
+#st_folium(map, width=700)
+
 
 st.divider()
 
