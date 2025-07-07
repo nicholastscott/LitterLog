@@ -46,19 +46,19 @@ response = requests.get("https://phl.carto.com/api/v2/sql", params={'q': query})
 new_data = pd.DataFrame(response.json()['rows'])
 
 
-@st.cache_data           # <‑‑ put decorator *above* the function
-def get_phl_data(sql_query: str) -> pd.DataFrame:
-    """Fetch query from phl.carto.com and return as DataFrame (cached)."""
-    response = requests.get(
-        "https://phl.carto.com/api/v2/sql",
-        params={"q": sql_query},
-        timeout=30,
-    )
-    response.raise_for_status()        # good practice: surface HTTP errors
-    return pd.DataFrame(response.json()["rows"])
+#@st.cache_data           # <‑‑ put decorator *above* the function
+#def get_phl_data(sql_query: str) -> pd.DataFrame:
+#    """Fetch query from phl.carto.com and return as DataFrame (cached)."""
+#    response = requests.get(
+#        "https://phl.carto.com/api/v2/sql",
+#        params={"q": sql_query},
+#        timeout=30,
+#    )
+#    response.raise_for_status()        # good practice: surface HTTP errors
+#    return pd.DataFrame(response.json()["rows"])
 
 # use the cached function
-new_data = get_phl_data(query)
+#new_data = get_phl_data(query)
 
 
 #Body of Webpage
