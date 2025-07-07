@@ -5,9 +5,9 @@ import requests
 from datetime import datetime
 import json
 from collections import Counter
-import folium
-from streamlit_folium import st_folium
-from folium.plugins import HeatMap
+#import folium
+#from streamlit_folium import st_folium
+#from folium.plugins import HeatMap
 
 #Page Config
 st.set_page_config(layout="wide")
@@ -70,6 +70,7 @@ a, b = st.columns(2)
 a.metric(
     label="Total Requests since Start of Strike", value=new_data.shape[0], delta_color="off"
 )
+
 
 #b.metric(
 #    label="Day over Day Change", value=123, delta=123, delta_color="off"
