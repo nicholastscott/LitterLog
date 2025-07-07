@@ -5,6 +5,8 @@ import requests
 from datetime import datetime
 import json
 from collections import Counter
+import pydeck as pdk
+
 #import folium
 #from streamlit_folium import st_folium
 #from folium.plugins import HeatMap
@@ -16,7 +18,7 @@ st.set_page_config(layout="wide")
 with st.sidebar:
     st.logo("logo-no-background.png")
     st.title("Where It Ends Up: Mapping Illegal Dumping")
-    st.write("DC 33, a union representing Philadelphia's municipal workers, went on strike July 1, 2025. This has frozen trash removal across the city of Philadelphia in hopes of better for better wages for these essential workers. Reports of illegal dumping are sure to increase. The goal of this project is to increase transparency so that the City's 311 system and residents don't lose track of these requests at this critical time.")
+    st.write("DC 33, a union representing Philadelphia's municipal workers, went on strike July 1, 2025. This has frozen trash removal across the city of Philadelphia in hopes of better wages for these essential workers. Reports of illegal dumping are suspected to increase. The goal of this project is to increase transparency so that the City's 311 system and residents don't lose track of these requests at this critical time.")
     st.divider()
     st.subheader("Features")
     st.write("1. Stats")
@@ -25,6 +27,8 @@ with st.sidebar:
     "In Progress: Day over Day rate calculation of Illegal Dumping Reports")
     st.write("2. Map")
     st.write("Mapbox")
+    st.divider()
+    st.caption("The views expressed here are my own and do not necessarily represent the views of the City of Philadelphia, DC 33, or Parker administration.")
     
 
 #Data
@@ -63,7 +67,8 @@ new_data = pd.DataFrame(response.json()['rows'])
 
 #Body of Webpage
 st.header("High Level Stats")
-st.write("Since 7/1/2025")
+timestamp = pd.Timestamp.now()
+st.caption(f'Data since 7/1/2025, Last Fetched: [{timestamp}]')
 
 a, b = st.columns(2)
 
@@ -92,16 +97,26 @@ st.write("Map of Hotspots")
 
 st.map(new_data)
 
-#map = folium.Map(location=[39.95233,-75.16379], zoom_start=16)
+#PyDeck Map
+# Map configuration
+#view_state = pdk.ViewState(
+#    latitude=39.95119,
+#    longitude=-75.16564,
+#    zoom=5,
+#    pitch=50
+#)
 
-#HeatMap(new_data).add_to(m)
+#layer = pdk.Layer(
+#    "ScatterplotLayer",
+#    data=new_data,
+#    get_position=["lon", "lat"],
+#    get_color=[200, 30, 0, 160],
+#    get_radius=50,
+#    tooltip={"text": "address"}
+#)
 
+#st.pydeck_chart(pdk.Deck(layers=[layer], initial_view_state=view_state))
 
-#for dumpsite in new_data:
-#    location = dumpsite['lat'], new_data['lon']
-#    folium.Marker(location).add_to(map) 
-
-#st_folium(map, width=700)
 
 
 st.divider()
@@ -111,14 +126,3 @@ st.divider()
 st.write("Raw Table from OpenData Philly")
 #st.page_link("https://opendataphilly.org/datasets/311-service-and-information-requests/",label="OpenDataPhilly")
 st.dataframe(new_data)
-
-#Data Step 2: Caching Newly Queried Data
-#@st.cache_data()
-#def load_data():
-#    data = pd.new_data
-#    return data
-
-# data = load_data()
-
-
-# Cleaning up dataframe
