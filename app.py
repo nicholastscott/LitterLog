@@ -30,6 +30,7 @@ with st.sidebar:
     st.divider()
     st.caption("The views expressed here are my own and do not necessarily represent the views of the City of Philadelphia, DC 33, or Parker administration.")
     
+    
 
 #Data
 
@@ -95,27 +96,49 @@ st.divider()
 
 st.write("Map of Hotspots")
 
-st.map(new_data)
+#st.map(new_data)
 
 #PyDeck Map
 # Map configuration
-#view_state = pdk.ViewState(
-#    latitude=39.95119,
-#    longitude=-75.16564,
-#    zoom=5,
-#    pitch=50
-#)
+view_state = pdk.ViewState(
+    latitude=39.95119,
+    longitude=-75.16564,
+    zoom=11,
+    pitch=5
+)
 
-#layer = pdk.Layer(
-#    "ScatterplotLayer",
-#    data=new_data,
-#    get_position=["lon", "lat"],
-#    get_color=[200, 30, 0, 160],
-#    get_radius=50,
-#    tooltip={"text": "address"}
-#)
+heat_layer = pdk.Layer(
+    "HeatmapLayer",
+    data=new_data,
+    opacity=0.8,
+    get_position=["lon", "lat"],
+    aggregation=pdk.types.String("COUNT"),
+    pickable=False,
+    threshold=.4
+)
 
-#st.pydeck_chart(pdk.Deck(layers=[layer], initial_view_state=view_state))
+scatter_layer = pdk.Layer(
+    "ScatterplotLayer",
+    data=new_data,
+    get_radius=30,
+    get_position=["lon", "lat"],
+    pickable=True,
+    get_fill_color=[255, 0, 0, 160],
+    threshold=.4,
+)
+
+tooltip = {
+    "html": """
+        <b>Address:</b> {address}<br/>
+        <img src="{media_url}" width="150"/>
+        """,
+    "style": {"backgroundColor": "steelblue", "color": "white"}
+}
+
+
+
+st.pydeck_chart(pdk.Deck(layers=[heat_layer, scatter_layer], initial_view_state=view_state, tooltip=tooltip))
+
 
 
 
